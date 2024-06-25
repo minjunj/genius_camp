@@ -121,3 +121,17 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
     python3 genius_camp/nuc/nats-test.py
 
 - 반드시 Step 3-3. 이 실행되어있는 상태에서 해주세요.
+
+# Step 5. 라즈베리 파이로 부터 영상 전송
+
+## \* 지금까지 실행시킨 .py 들은 모두 control + c 로 정지 시켜주세요.
+
+### 라즈베리파이에서 실행
+
+    python3 genius_camp/pi/result.py
+
+### NUC에서 실행
+
+    python3 genius_camp/nuc/result.py
+
+### 라즈베리파이에서 먼저 실행시키지 않으면 NUC에서 작동 되지 않습니다.
