@@ -19,7 +19,8 @@ async def main():
             buffer = io.BytesIO()
             picam2.capture_file(buffer, format='jpeg')
             # Publish frame to NATS
-            await nc.publish("camera.frames", buffer.getvalue())
+            print("shot")
+            await nc.publish("pc23", buffer.getvalue())
             await asyncio.sleep(1/30)  # Send 30 frames per second
 
     # Start the sending task
