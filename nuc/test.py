@@ -9,11 +9,12 @@ async def main():
     nc = await nats.connect("demo.nats.io")
 
     # Subscribe to the camera.frames subject
-    sub = await nc.subscribe("camera.frames")
+    sub = await nc.subscribe("pc23")
     print("READY")
     async def receive_frame():
         while True:
             msg = await sub.next_msg()
+            print("Received:", msg)
             # Decode JPEG frame
             buffer = io.BytesIO(msg.data)
             frame = Image.open(buffer)
