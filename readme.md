@@ -61,10 +61,15 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
     https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2
 
 카메라를 꼽으면 재부팅 시켜줍니다.<br>
-위 와 같이 설정 후 Preferences > Rasberry Pi Configureation > Inferface > Camera 옵션을 Enabled 로 변경 후 OK
+
+- 해당 버전(24년 3월 15일 릴리즈 기준) 부터는 따로 설정이 사라지고 알아서 잡고, 라이브러리 다운로드를 하는 듯합니다. 기존 picamera가 deprecated 되면서 picamera2로 올라감.
 
 ### 2-5. PI Camera 테스트
 
+#### 2-5-1. PI Camera 라이브러리 다운로드
+
     sudo apt install -y python3-picamera2
+
+#### 2-5-2. PI Camera 테스트
 
     python3 genius_camp/pi/camera.py
