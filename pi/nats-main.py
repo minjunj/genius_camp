@@ -5,13 +5,10 @@ async def main():
     # Connect to NATS!
     nc = await nats.connect("demo.nats.io")
 
-    # Receive messages on 'foo'
-    sub = await nc.subscribe("foo")
-
     try:
         while True:
             # Publish a message to 'foo'
-            await nc.publish("foo", b'Hello from Python!')
+            await nc.publish("pc23", b'Hello from Python!')
             print("asd")
             # Make sure all published messages have reached the server
             await nc.flush()
