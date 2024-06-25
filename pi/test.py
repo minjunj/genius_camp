@@ -14,7 +14,9 @@ async def main():
     picam2.start()
 
     async def send_frame():
+        print("in")
         while True:
+            print("loop")
             # Capture frame
             buffer = io.BytesIO()
             picam2.capture_file(buffer, format='jpeg')

@@ -12,7 +12,9 @@ async def main():
     sub = await nc.subscribe("pc23")
     print("READY")
     async def receive_frame():
+        print("in")
         while True:
+            print("loop")
             msg = await sub.next_msg()
             print("Received:", msg)
             # Decode JPEG frame
@@ -30,6 +32,7 @@ async def main():
     label.pack()
 
     # Start the receiving task
+    print("asdasd")
     receiver_task = asyncio.create_task(receive_frame())
 
     # Run the tkinter main loop
