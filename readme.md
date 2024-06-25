@@ -73,3 +73,12 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 #### 2-5-2. PI Camera 테스트
 
     python3 genius_camp/pi/camera.py
+
+### 2-6. PI NATS Produce
+
+#### 2-6-1. NATS 라이브러리 설치
+
+    sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+    pip3 install nats-py
+
+#### 2-6-2. NATS 테스트
