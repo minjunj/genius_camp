@@ -6,7 +6,7 @@ async def main():
     nc = await nats.connect("demo.nats.io")
 
     # Receive messages on 'foo'
-    sub = await nc.subscribe("foo")
+    sub = await nc.subscribe("pc23")
 
     while True:
     # Process a message
