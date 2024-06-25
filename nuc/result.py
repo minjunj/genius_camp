@@ -5,6 +5,7 @@ import cv2
 import asyncio
 import nats
 import io
+import time
 
 async def main():
     parser = argparse.ArgumentParser()
@@ -22,8 +23,9 @@ async def main():
     try:
         while True:
             # Wait for a message
-            msg = await sub.next_msg()
 
+            msg = await sub.next_msg()
+            time.sleep(0.5)
             # Decode JPEG frame
             buffer = io.BytesIO(msg.data)
             img_array = np.frombuffer(buffer.getvalue(), dtype=np.uint8)
