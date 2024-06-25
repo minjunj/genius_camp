@@ -1,7 +1,7 @@
-from picamera import PiCamera
+from picamera2 import PiCamera2
 from time import sleep
 
-camera = PiCamera()
+camera = PiCamera2()
 
 camera.start_preview()
 sleep(5)
