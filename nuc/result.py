@@ -4,6 +4,25 @@ from PIL import Image, ImageTk
 import tkinter as tk
 import io
 
+class TkAsyncio:
+    def __init__(self, root):
+        self.root = root
+        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    def on_close(self):
+        self.root.quit()
+        self.root.destroy()
+        asyncio.get_event_loop().stop()
+
+    def run(self):
+        asyncio.ensure_future(self.update_tk())
+        asyncio.get_event_loop().run_forever()
+
+    async def update_tk(self):
+        while True:
+            self.root.update()
+            await asyncio.sleep(0.01)
+
 async def main():
     # Connect to NATS
     nc = await nats.connect("demo.nats.io")
@@ -11,10 +30,9 @@ async def main():
     # Subscribe to the camera.frames subject
     sub = await nc.subscribe("pc23")
     print("READY")
+
     async def receive_frame():
-        print("in")
         while True:
-            print("loop")
             msg = await sub.next_msg()
             print("Received:", msg)
             # Decode JPEG frame
@@ -31,19 +49,16 @@ async def main():
     label = tk.Label(root)
     label.pack()
 
-    # Start the receiving task
-    print("asdasd")
+    # Create and start the tkinter/asyncio integration
+    tk_asyncio = TkAsyncio(root)
     receiver_task = asyncio.create_task(receive_frame())
 
-    # Run the tkinter main loop
-    try:
-        root.mainloop()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        # Cancel the receiving task and close the NATS connection
-        receiver_task.cancel()
-        await nc.close()
+    # Start the combined event loop
+    tk_asyncio.run()
+
+    # Cleanup
+    await receiver_task
+    await nc.close()
 
 if __name__ == '__main__':
     asyncio.run(main())

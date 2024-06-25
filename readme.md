@@ -38,7 +38,7 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 
 #### 2-2. 기본 패키지 설치
 
-    sudo apt-get update && sudo apt-get upgrade -y # 패키지 업데이트 과정이 꽤 오래걸림.
+    sudo apt-get update && sudo apt-get upgrade -y
 
     sudo apt-get install net-tools
 
@@ -94,7 +94,15 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 
 ## 2. NATS 라이브러리 설치
 
+    sudo apt install python3-pip
+
+    sudo rm /usr/lib/python3.12/EXTERNALLY-MANAGED
+
     pip install nats-py
+
+    sudo pip install pillow --upgrade
+
+    sudo apt-get install python3-tk
 
 ## 3. 레포지토리 다운
 
