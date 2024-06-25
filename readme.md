@@ -40,6 +40,10 @@
 
     pip install nats-py
 
+### 1-4. 레포지토리 다운
+
+    git clone https://github.com/minjunj/genius_camp.git
+
 ## 2. Pi 설정
 
 ### 2-1. 기본 설정
@@ -78,7 +82,7 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 
     python3 genius_camp/pi/camera.py
 
-### 2-6. PI NATS Produce
+### 2-6. PI NATS Publish
 
 #### 2-6-1. NATS 라이브러리 설치
 
