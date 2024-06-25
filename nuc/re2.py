@@ -35,14 +35,15 @@ async def main():
             # Exit if Esc is pressed
             if cv2.waitKey(1) == 27:
                 break
-
     except KeyboardInterrupt:
         print("Keyboard interrupt detected, exiting...")
-    finally:
+    except:
+        pass
+    #finally:
         # Clean up
-        cv2.destroyAllWindows()
-        await nc.close()
-        print("NATS connection closed.")
+        # cv2.destroyAllWindows()
+        # await nc.close()
+        # print("NATS connection closed.")
 
 if __name__ == "__main__":
     asyncio.run(main())
