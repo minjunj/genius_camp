@@ -92,7 +92,7 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 
 ### 1. NUC NATS Publish
 
-## 2. NATS 라이브러리 설치
+## 2. 라이브러리 설치
 
     sudo apt install python3-pip
 
@@ -103,6 +103,12 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
     sudo pip install pillow --upgrade
 
     sudo apt-get install python3-tk
+
+    sudo apt install -y libatlas-base-dev
+
+    sudo pip3 install opencv-python
+
+    sudo pip3 install -U numpy
 
 ## 3. 레포지토리 다운
 
