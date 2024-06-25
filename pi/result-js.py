@@ -6,7 +6,8 @@ import io
 async def main():
     # Connect to NATS
     nc = await nats.connect("demo.nats.io")
-
+    js = nc.jetstream()
+    await js.add_stream(name="sample-stream", subjects=["foo"])
     # Initialize the camera
     picam2 = Picamera2()
     config = picam2.create_preview_configuration(main={"format": "RGB888"})
@@ -22,7 +23,7 @@ async def main():
             picam2.capture_file(buffer, format='jpeg')
             # Publish frame to NATS
             print("shot")
-            await nc.publish("pc23", buffer.getvalue())
+            await js.publish("pc23", buffer.getvalue())
             await asyncio.sleep(1/30)  # Send 30 frames per second
 
     # Start the sending task

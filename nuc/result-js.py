@@ -13,9 +13,10 @@ async def main():
 
     # Connect to NATS
     nc = await nats.connect("demo.nats.io")
-
+    js = nc.jetstream()
     # Subscribe to the specified subject
-    sub = await nc.subscribe(args.subject)
+    sub = await js.subscribe(name="sample-stream", subjects=[args.subject])
+    
 
     print(f"Subscribed to NATS subject: {args.subject}")
 
