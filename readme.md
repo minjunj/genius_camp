@@ -10,7 +10,11 @@
 
 이번 세션에서는 ssh 를 통한 원격 접속은 사용하지 않습니다.
 
-# Step 1. 환경성정
+## Step 0. 시작하기 앞서..
+
+# 모든 명령어는 ~ 에서 진행됩니다.
+
+# Step 1. 환경설정
 
 ## 1. NUC에 ubuntu 24.04 설치
 
@@ -82,3 +86,10 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
     pip3 install nats-py
 
 #### 2-6-2. NATS 테스트
+
+테스트를 위한 파일 실행
+
+    python3 genius_camp/pi/nats-test.py
+
+아래와 같이 응답이 온다면 정상<br>
+`Received: Msg(_client=<nats client v2.4.0>, subject='foo', reply='', data=b'Hello from Python!', headers=None, _metadata=None, _ackd=False, _sid=1)`
