@@ -88,7 +88,7 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 아래와 같이 응답이 온다면 정상<br>
 `Received: Msg(_client=<nats client v2.4.0>, subject='foo', reply='', data=b'Hello from Python!', headers=None, _metadata=None, _ackd=False, _sid=1)`
 
-    NUC에서 작동 확인을 위해 아래의 파일을 실행시켜 두기
+NUC에서 작동 확인을 위해 아래의 파일을 실행시켜 두기
 
     python3 genius_camp/pi/nats-main.py
 
@@ -124,7 +124,7 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 
     python3 genius_camp/nuc/nats-test.py
 
-- 반드시 Step 3-3. 이 실행되어있는 상태에서 해주세요.
+- 반드시 Step 3-3. 의 마지막 명령어가 실행되어있는 상태에서 해주세요.
 
 # Step 5. 라즈베리 파이로 부터 영상 전송
 
