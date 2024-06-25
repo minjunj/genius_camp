@@ -25,7 +25,6 @@ async def main():
             # Wait for a message
 
             msg = await sub.next_msg()
-            time.sleep(0.5)
             # Decode JPEG frame
             buffer = io.BytesIO(msg.data)
             img_array = np.frombuffer(buffer.getvalue(), dtype=np.uint8)

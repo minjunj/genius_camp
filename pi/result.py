@@ -28,7 +28,6 @@ async def main():
     sender_task = asyncio.create_task(send_frame())
 
     # Run for a certain amount of time then clean up
-    await asyncio.sleep(60)  # Run for 60 seconds
 
     # Cancel the sending task and stop the camera
     sender_task.cancel()
