@@ -65,4 +65,6 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 
 ### 2-5. PI Camera 테스트
 
+    sudo apt install -y python3-picamera2
+
     python3 genius_camp/pi/camera.py
