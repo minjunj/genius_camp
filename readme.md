@@ -88,6 +88,10 @@ update software 만 스킵하고 나머지는 다 기본 설정으로 진행합�
 아래와 같이 응답이 온다면 정상<br>
 `Received: Msg(_client=<nats client v2.4.0>, subject='foo', reply='', data=b'Hello from Python!', headers=None, _metadata=None, _ackd=False, _sid=1)`
 
+    NUC에서 작동 확인을 위해 아래의 파일을 실행시켜 두기
+
+    python3 genius_camp/pi/nats-main.py
+
 # Step 4. NUC에서 NATS 설정하기
 
 ### 1. NUC NATS Publish
