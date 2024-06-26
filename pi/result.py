@@ -1,9 +1,14 @@
 import asyncio
+import argparse
 import nats
 from picamera2 import Picamera2, MappedArray
 import io
 
 async def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--subject", default='pc23')
+    args = parser.parse_args()
+
     # Connect to NATS
     nc = await nats.connect("demo.nats.io")
     # Initialize the camera
@@ -13,15 +18,13 @@ async def main():
     picam2.start()
 
     async def send_frame():
-        print("in")
         while True:
-            print("loop")
             # Capture frame
             buffer = io.BytesIO()
             picam2.capture_file(buffer, format='jpeg')
             # Publish frame to NATS
-            print("shot")
-            await nc.publish("pc23", buffer.getvalue())
+            print(f"Published to NATS subject: {args.subject}")
+            await nc.publish(args.subject, buffer.getvalue())
             await asyncio.sleep(1/30)  # Send 30 frames per second
 
     # Start the sending task
