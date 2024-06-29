@@ -36,7 +36,7 @@ async def main():
             # Decode JPEG frame
             buffer = io.BytesIO(msg.data)
             img_array = np.frombuffer(buffer.getvalue(), dtype=np.uint8)
-            img = cv2.imdecode(img_array, 1)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
 
             # Display the frame
             cv2.imshow("NATS Video Stream", img)
