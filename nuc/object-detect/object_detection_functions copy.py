@@ -9,13 +9,7 @@ class YOLOModel:
 
     def get_output_layer(self):
         layers = self.model.getLayerNames()
-        try:
-            output_layers_indexes = self.model.getUnconnectedOutLayers()
-            print(f"Output layers indexes: {output_layers_indexes}")
-            output_layer = [layers[i - 1] for i in output_layers_indexes]
-        except IndexError as e:
-            print(f"IndexError: {e}, layers: {layers}, output_layers_indexes: {output_layers_indexes}")
-            raise
+        output_layer = [layers[i[0] - 1] for i in self.model.getUnconnectedOutLayers()]
         return output_layer
 
     def inference(self, input_img):
