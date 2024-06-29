@@ -47,5 +47,9 @@ if __name__ == "__main__":
             # Exit if Esc is pressed
             if cv2.waitKey(1) == 27:
                 break
-
+    except KeyboardInterrupt:
+        print("Keyboard interrupt detected, exiting...")
+    except:
+        pass
+    
     print("객체 검출을 종료합니다")
