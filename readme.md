@@ -139,3 +139,14 @@ NUC에서 작동 확인을 위해 아래의 파일을 실행시켜 두기
     python3 genius_camp/nuc/result.py --subject {원하는 이름}
 
 ### 라즈베리파이에서 먼저 실행시키지 않으면 NUC에서 작동 되지 않습니다.
+
+# Step 6. pi 카메라 객체 인식
+
+## PI에서
+
+    python3 genius_camp/pi/result.py --subject {원하는 이름}
+
+## NUC에서
+
+    cd genius_camp/nuc/object-detect
+    python3 video_object_detection.py --subject {원하는 이름}
