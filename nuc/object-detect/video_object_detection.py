@@ -8,7 +8,7 @@ import asyncio
 from object_detection_functions import YOLOModel, read_classes, show_detected_objects
 
 
-if __name__ == "__main__":
+async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--weight_path", type=str, default="./yolov3-tiny.weights")
     parser.add_argument("--cfg_path", type=str, default="./yolov3-tiny.cfg")
@@ -53,3 +53,6 @@ if __name__ == "__main__":
         pass
     
     print("객체 검출을 종료합니다")
+
+if __name__ == "__main__":
+    asyncio.run(main())
