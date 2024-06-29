@@ -13,7 +13,7 @@ if __name__ == "__main__":
     parser.add_argument("--weight_path", type=str, default="./yolov3-tiny.weights")
     parser.add_argument("--cfg_path", type=str, default="./yolov3-tiny.cfg")
     parser.add_argument("--class_path", type=str, default="./coco.names")
-    parser.add_argument("--topic", type=str, default="pi-video")
+    parser.add_argument("--subject", default='pc23')
     args = parser.parse_args()
 
     # Model 정의
